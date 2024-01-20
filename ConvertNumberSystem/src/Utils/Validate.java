@@ -1,23 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Utils;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-/**
- *
- * @author emlad
- */
 public class Validate {
 
     public String getBinary() {
         Pattern p = Pattern.compile("^[0-1]+$");
         while (true) {
-            System.out.print("INPUT: ");
+            System.out.print("INPUT : ");
             Scanner sc = new Scanner(System.in);
             String binary = sc.nextLine();
             if (p.matcher(binary).find()) {
@@ -31,7 +23,7 @@ public class Validate {
     public int getDecimal() {
         Pattern p = Pattern.compile("^[0-9]+$");
         while (true) {
-            System.out.print("INPUT: ");
+            System.out.print("INPUT : ");
             Scanner sc = new Scanner(System.in);
             String decimal = sc.nextLine();
             if (p.matcher(decimal).find()) {
@@ -45,7 +37,7 @@ public class Validate {
     public String getHexa() {
         Pattern p = Pattern.compile("^\\b[0-9A-F]+\\b$");
         while (true) {
-            System.out.print("INPUT: ");
+            System.out.print("INPUT : ");
             Scanner sc = new Scanner(System.in);
             String hexa = sc.nextLine();
             if (p.matcher(hexa).find()) {
@@ -71,9 +63,14 @@ public class Validate {
         }
     }
     public String getName(int a){
-        if(a==1) return "Binary";
-        else if(a==2) return "Decimal";
-        else return "Hexadecimal";
+        switch (a) {
+            case 1:
+                return "Binary";
+            case 2:
+                return "Decimal";
+            default:
+                return "Hexadecimal";
+        }
     }
 
 }
