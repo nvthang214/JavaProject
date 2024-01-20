@@ -62,7 +62,5 @@ public class Main {
                 }
                 break;
         }
-        System.out.println("ahihi");
-        System.out.println("ahihi");
     }
 }
