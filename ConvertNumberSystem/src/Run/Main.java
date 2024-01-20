@@ -53,11 +53,11 @@ public class Main {
             case 3:
                 switch (input) {
                     case 1:
-
+                        System.out.println("OUTPUT: " + o.hexaToBinary(v.getHexa()));
                         break;
                     case 2:
+                        System.out.println("OUTPUT: " + o.hexaToDecimal(v.getHexa()));
                         break;
-
                 }
                 break;
 
