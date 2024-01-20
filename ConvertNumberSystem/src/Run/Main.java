@@ -5,55 +5,62 @@
  */
 package Run;
 
+import Controller.Option;
+import Utils.Validate;
+import java.io.IOException;
+import java.util.Scanner;
+
 /**
  *
  * @author emlad
  */
-import java.util.Scanner;
-import java.util.regex.Pattern;
-
 public class Main {
-//    public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//
-//        System.out.println("Chọn loại số bạn muốn chuyển đổi:");
-//        System.out.println("1. Binary to Decimal");
-//        System.out.println("2. Decimal to Hexadecimal");
-//
-//        int choice = scanner.nextInt();
-//
-//        switch (choice) {
-//            case 1:
-//                System.out.print("Nhập số nhị phân: ");
-//                String binaryInput = scanner.next();
-//                int decimalResult = binaryToDecimal(binaryInput);
-//                System.out.println("Kết quả chuyển đổi: " + decimalResult);
-//                break;
-//
-//            case 2:
-//                System.out.print("Nhập số thập phân: ");
-//                int decimalInput = scanner.nextInt();
-//                String hexResult = decimalToHexadecimal(decimalInput);
-//                System.out.println("Kết quả chuyển đổi: " + hexResult);
-//                break;
-//
-//            default:
-//                System.out.println("Lựa chọn không hợp lệ.");
-//        }
-//    }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        
-        
-    }
+        Option o = new Option();
+        Validate v = new Validate();
+        System.out.println("------INPUT------");
+        o.menu();
+        int input = v.getChoice();
 
-    private static int binaryToDecimal(String binary) {
-        return Integer.parseInt(binary, 2);
-    }
+        System.out.println("------OUTPUT------");
+        o.menu();
+        int output = v.getChoice();
+        System.out.println("-----" + v.getName(input) + "  TO  "
+                + v.getName(output) + "-----");
+//        ---------------------------------------------------------
+        switch (input) {
+            case 1:
+                switch (output) {
+                    case 2:
+                        System.out.println("OUTPUT: " + o.binaryToDecimal(v.getBinary()));
+                        break;
+                    case 3:
+                        System.out.println("OUTPUT: " + o.binaryToHexa(v.getBinary()));
+                        break;
+                }
+                break;
+            case 2:
+                switch (input) {
+                    case 1:
+                        System.out.println("OUTPUT: " + o.decimalToBinary(v.getDecimal()));
+                        break;
+                    case 3:
+                        System.out.println("OUTPUT: " + o.decimalToHexa(v.getDecimal()));
+                        break;
+                }
+                break;
+            case 3:
+                switch (input) {
+                    case 1:
 
-    private static String decimalToHexadecimal(int decimal) {
-        return Integer.toHexString(decimal).toUpperCase();
+                        break;
+                    case 2:
+                        break;
+
+                }
+                break;
+
+        }
     }
 }
