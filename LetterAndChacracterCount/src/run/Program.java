@@ -28,7 +28,7 @@ public class Program {
 
         System.out.println("Character count:");
         for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
-            System.out.println("'" + entry.getKey() + "': " + entry.getValue());
+            System.out.print("{" + entry.getKey() + "}: " + entry.getValue()+" ");
         }
 
         // Close the scanner
