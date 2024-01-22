@@ -22,7 +22,6 @@ public class Program {
         String input = scanner.nextLine();
 
         // Calculate hash code
-        int hashCode = calculateHashCode(input);
 
         // Count characters
         Map<Character, Integer> charCountMap = countCharacters(input);
