@@ -15,24 +15,21 @@ import java.util.Scanner;
 public class Program {
    
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         // Read input from the user
         System.out.print("Enter a string: ");
-        String input = scanner.nextLine();
-
-        // Calculate hash code
-
+        String input = sc.nextLine();
         // Count characters
         Map<Character, Integer> charCountMap = countCharacters(input);
+        
 
         System.out.println("Character count:");
         for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
             System.out.print("{" + entry.getKey() + "}: " + entry.getValue()+" ");
+            
         }
-
-        // Close the scanner
-        scanner.close();
+        sc.close();
     }
 
 
