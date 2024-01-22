@@ -36,10 +36,6 @@ public class Program {
         scanner.close();
     }
 
-    // Method to calculate hash code of a string
-    public static int calculateHashCode(String str) {
-        return str.hashCode();
-    }
 
     // Method to count characters in a string
     public static Map<Character, Integer> countCharacters(String str) {
