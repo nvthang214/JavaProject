@@ -27,8 +27,6 @@ public class Program {
         // Count characters
         Map<Character, Integer> charCountMap = countCharacters(input);
 
-        // Display the results
-        System.out.println("Hash code: " + hashCode);
         System.out.println("Character count:");
         for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
             System.out.println("'" + entry.getKey() + "': " + entry.getValue());
