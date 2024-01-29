@@ -39,7 +39,7 @@ public class Program {
             String result = in.nextLine();
             if (result.length() == 0) {
                 getWordLanguage(language, "errCheckInputIntLimit");
-                System.out.println();
+                System.out.println("---------------");
             } else {
                 return result;
             }
