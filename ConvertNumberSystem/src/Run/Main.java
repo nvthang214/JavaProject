@@ -1,9 +1,7 @@
-
 package Run;
 
 import Controller.Option;
 import Utils.Validate;
-
 
 public class Main {
 
@@ -11,16 +9,11 @@ public class Main {
 
         Option o = new Option();
         Validate v = new Validate();
-        System.out.println("------INPUT------");
-        o.menu();
-        int input = v.getChoice();
-
-        System.out.println("------OUTPUT------");
-        o.menu();
-        int output = v.getChoice();
-        System.out.println("_____" + v.getName(input) + "  TO  "
-                + v.getName(output) + "_____");
-//        ---------------------------------------------------------
         
+        int input = v.getBase("Input");
+        String value = v.getValue(input);
+        
+//        ---------------------------------------------------------
+
     }
 }

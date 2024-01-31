@@ -1,4 +1,3 @@
-
 package Utils;
 
 import java.util.Scanner;
@@ -6,70 +5,42 @@ import java.util.regex.Pattern;
 
 public class Validate {
 
-    public String getBinary() {
-        Pattern p = Pattern.compile("^[0-1]+$");
+    public String getValue(int base) {
+        Pattern binary = Pattern.compile("^[0-1]+$");
+        Pattern decimal = Pattern.compile("^[0-9]+$");
+        Pattern hexa = Pattern.compile("^\\b[0-9A-F]+\\b$");
+        Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.print("INPUT : ");
-            Scanner sc = new Scanner(System.in);
-            String binary = sc.nextLine();
-            if (p.matcher(binary).find()) {
-                return binary;
-            } else {
-                System.out.println("Input number must be in (0,1)");
+            String value = sc.nextLine();
+            switch (base) {
+                case 2:
+                    if (binary.matcher(value).find()) {
+                        return value;
+                    }
+                case 16:
+                    if (hexa.matcher(value).find()) {
+                        return value;
+                    }
+                default:
+                    if (decimal.matcher(value).find()) {
+                        return value;
+                    }
             }
+            System.out.println("Value is not valid");
         }
     }
 
-    public int getDecimal() {
+    public int getBase(String msg) {
         Pattern p = Pattern.compile("^[0-9]+$");
         while (true) {
-            System.out.print("INPUT : ");
-            Scanner sc = new Scanner(System.in);
-            String decimal = sc.nextLine();
-            if (p.matcher(decimal).find()) {
-                return Integer.parseInt(decimal);
-            } else {
-                System.out.println("Input must be a number!!!");
-            }
-        }
-    }
-
-    public String getHexa() {
-        Pattern p = Pattern.compile("^\\b[0-9A-F]+\\b$");
-        while (true) {
-            System.out.print("INPUT : ");
-            Scanner sc = new Scanner(System.in);
-            String hexa = sc.nextLine();
-            if (p.matcher(hexa).find()) {
-                return hexa;
-            } else {
-                System.out.println("Input must be hexadecimal!!!");
-            }
-        }
-    }
-
-    public int getChoice() {
-
-        Pattern p = Pattern.compile("^[1-3]$");
-        while (true) {
-            System.out.println("Input your choice:");
+            System.out.println(msg + " base (Example: 8 for octal,16 for hexa ,2 for binary,....): ");
             Scanner sc = new Scanner(System.in);
             String number = sc.nextLine();
             if (p.matcher(number).find()) {
                 return Integer.parseInt(number);
             } else {
-                System.out.println("Input must be 1, 2 or 3");
+                System.out.println(msg + " must be a number");
             }
-        }
-    }
-    public String getName(int a){
-        switch (a) {
-            case 1:
-                return "Binary";
-            case 2:
-                return "Decimal";
-            default:
-                return "Hexadecimal";
         }
     }
 
