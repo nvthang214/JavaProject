@@ -11,22 +11,25 @@ public class Validate {
         Pattern hexa = Pattern.compile("^\\b[0-9A-F]+\\b$");
         Scanner sc = new Scanner(System.in);
         while (true) {
+            System.out.print("Enter value: ");
             String value = sc.nextLine();
             switch (base) {
                 case 2:
                     if (binary.matcher(value).find()) {
                         return value;
                     }
+                    break;
                 case 16:
                     if (hexa.matcher(value).find()) {
                         return value;
                     }
+                    break;
                 default:
                     if (decimal.matcher(value).find()) {
                         return value;
                     }
             }
-            System.out.println("Value is not valid");
+            System.err.println("Value is not valid");
         }
     }
 
@@ -39,7 +42,7 @@ public class Validate {
             if (p.matcher(number).find()) {
                 return Integer.parseInt(number);
             } else {
-                System.out.println(msg + " must be a number");
+                System.err.println(msg + " must be a number");
             }
         }
     }
