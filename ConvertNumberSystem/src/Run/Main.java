@@ -21,46 +21,6 @@ public class Main {
         System.out.println("_____" + v.getName(input) + "  TO  "
                 + v.getName(output) + "_____");
 //        ---------------------------------------------------------
-        switch (input) {
-            case 1:
-                switch (output) {
-                    case 1:
-                        System.out.println("OUTPUT: " + v.getBinary());
-                        break;
-                    case 2:
-                        System.out.println("OUTPUT: " + o.binaryToDecimal(v.getBinary()));
-                        break;
-                    case 3:
-                        System.out.println("OUTPUT: " + o.binaryToHexa(v.getBinary()));
-                        break;
-                }
-                break;
-            case 2:
-                switch (output) {
-                    case 1:
-                        System.out.println("OUTPUT: " + o.decimalToBinary(v.getDecimal()));
-                        break;
-                    case 2:
-                        System.out.println("OUTPUT: " + v.getDecimal());
-                        break;
-                    case 3:
-                        System.out.println("OUTPUT: " + o.decimalToHexa(v.getDecimal()));
-                        break;
-                }
-                break;
-            case 3:
-                switch (output) {
-                    case 1:
-                        System.out.println("OUTPUT: " + o.hexaToBinary(v.getHexa()));
-                        break;
-                    case 2:
-                        System.out.println("OUTPUT: " + o.hexaToDecimal(v.getHexa()));
-                        break;
-                    case 3:
-                        System.out.println("OUTPUT: " + v.getHexa());
-                        break;
-                }
-                break;
-        }
+        
     }
 }
