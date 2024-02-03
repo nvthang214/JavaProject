@@ -11,7 +11,7 @@ public class Program {
 
     private static final Scanner in = new Scanner(System.in);
 
-    private static final String ACCOUNT_NUMBER_VALID = "^\\d{10}$";
+    private static final String ACCOUNT_NUMBER_VALID = "^[0-9]{10}$";
     private static final char[] chars = {'1', 'A', 'a', 'B', 'b', 'C',
         'c', '2', 'D', 'd', 'E', 'e', 'F', 'f', '3', 'G', 'g', 'H', 'h',
         'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', '4', 'M', 'm', 'N', 'n',
@@ -118,7 +118,7 @@ public class Program {
 
     static void getWordLanguage(Locale curLocate, String key) {
         ResourceBundle words
-                = ResourceBundle.getBundle("Language/" + curLocate, curLocate);
+                = ResourceBundle.getBundle("Lang/" + curLocate, curLocate);
         String value = words.getString(key);
         System.out.printf(value);
     }
@@ -143,7 +143,7 @@ public class Program {
 
     static void display() {
         Locale vietnamese = new Locale("vi");
-        Locale english = Locale.ENGLISH;
+        Locale english = new Locale("en");
         System.out.println("1. Vietnamese");
         System.out.println("2. English");
         System.out.println("3. Exit");
