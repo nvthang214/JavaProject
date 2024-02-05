@@ -35,4 +35,9 @@ public class Valid {
         }
         return false;
     }
+    
+    public boolean checkPassword(String password){
+        return false;
+    }
+    
 }
