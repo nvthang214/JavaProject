@@ -157,7 +157,7 @@ public class Program {
                 login(english);
                 break;
             case 3:
-                return;
+                System.exit(0);
         }
     }
 
