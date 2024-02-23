@@ -5,6 +5,8 @@
  */
 package data;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -46,6 +48,20 @@ public class Controller {
             }
 
         }
+    }
+    public boolean checkDate(String dateStr, String format) {
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        sdf.setLenient(false);
+
+        try {
+            sdf.parse(dateStr);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+    public void getDate(){
+        
     }
     
 }
