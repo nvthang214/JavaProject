@@ -59,13 +59,10 @@ public class Manage {
         } else {
             int salaryCurrent = worker.getSalary();
             int salaryUpdate;
-            //check user want to update salary
             if (status == 1) {
                 System.out.print("Enter salary: ");
-                //loop until user input salary update > salary current
                 while (true) {
                     salaryUpdate = Validation.inSalary();
-                    //check user input salary update > salary current
                     if (salaryUpdate <= salaryCurrent) {
                         System.err.println("Must be greater than current salary.");
                         System.out.print("Enter again: ");
@@ -78,10 +75,8 @@ public class Manage {
                         worker.getWorkLocation()));
             } else {
                 System.out.print("Enter salary: ");
-                //loop until user input salary update < salary current
                 while (true) {
                     salaryUpdate = Validation.inSalary();
-                    //check user input salary update < salary current
                     if (salaryUpdate >= salaryCurrent) {
                         System.err.println("Must be smaller than current salary.");
                         System.out.print("Enter again: ");
