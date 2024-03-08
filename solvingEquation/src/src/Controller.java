@@ -48,11 +48,17 @@ public class Controller {
         List<Float> solution = calculateEquation(a, b);
         if (solution == null) {
             System.out.println("No solution exists.");
-        } else if (solution.size() == 2) {
+        } else if (solution.isEmpty()) {
             System.out.println("Infinitely many solutions.");
         } else {
-            System.out.println("Solution: x = " + solution.get(2));
-            displayProperties(solution);
+            displaySolution(solution);
+            List<Float> sol = new ArrayList<>();
+            sol.add((float) a);
+            sol.add((float) b);
+            for (Float float1 : solution) {
+                sol.add(float1);
+            }
+            displayProperties(sol);
         }
     }
 
@@ -67,18 +73,23 @@ public class Controller {
         List<Float> solutions = calculateQuadraticEquation(a, b, c);
         if (solutions == null) {
             System.out.println("No solution exists.");
-        } else if (solutions.size() == 3) {
+        } else if (solutions.isEmpty()) {
             System.out.println("Infinitely many solutions.");
         } else {
-            System.out.printf("Solutions: x1 = %.2f, x2 = %.2f\n", solutions.get(3), solutions.get(4));
-            displayProperties(solutions);
+            displaySolution(solutions);
+            List<Float> sol = new ArrayList<>();
+            sol.add((float) a);
+            sol.add((float) b);
+            sol.add((float) c);
+            for (Float float1 : solutions) {
+                sol.add(float1);
+            }
+            displayProperties(sol);
         }
     }
 
     public static List<Float> calculateEquation(int a, int b) {
         List<Float> solution = new ArrayList<>();
-        solution.add((float) a);
-        solution.add((float) b);
         if (a == 0) {
             if (b == 0) {
                 // Infinitely many solutions
@@ -86,9 +97,8 @@ public class Controller {
                 // No solution
                 return null;
             }
-        } else {
-            float x = -b / a;
-            solution.add(x);
+        } if(a!=0) {
+            solution.add((float)-b / a);
         }
 
         return solution;
@@ -96,27 +106,33 @@ public class Controller {
 
     public static List<Float> calculateQuadraticEquation(int a, int b, int c) {
         List<Float> solutions = new ArrayList<>();
-        solutions.add((float) a);
-        solutions.add((float) b);
-        solutions.add((float) c);
 
-        if (a == 0 && b == 0 && c == 0) {
-            return solutions;
-        }
-        float delta = b * b - 4 * a * c;
+        if (a != 0) {
+            float delta = b * b - 4 * a * c;
 
-        if (delta < 0) {
-            return null;
-        } else if (delta == 0) {
-            float x = -b / (2 * a);
-            solutions.add(x);
-            solutions.add(x);
+            if (delta < 0) {
+                return null;
+            } else if (delta == 0) {
+                float x = -b / (2 * a);
+                solutions.add(x);
+                solutions.add(x);
 
+            } else {
+                float x1 = (-b + (float) Math.sqrt(delta)) / (2 * a);
+                float x2 = (-b - (float) Math.sqrt(delta)) / (2 * a);
+                solutions.add(x1);
+                solutions.add(x2);
+            }
         } else {
-            float x1 = (-b + (float) Math.sqrt(delta)) / (2 * a);
-            float x2 = (-b - (float) Math.sqrt(delta)) / (2 * a);
-            solutions.add(x1);
-            solutions.add(x2);
+            List<Float> ls = calculateEquation(b, c);
+            if (ls != null) {
+                for (Float l : ls) {
+                    solutions.add(l);
+                }
+            }else{
+                return null;
+            }
+
         }
 
         return solutions;
@@ -127,7 +143,7 @@ public class Controller {
         return sqrt == Math.floor(sqrt);
     }
 
-     public static void displayProperties(List<Float> solutions) {
+    public static void displayProperties(List<Float> solutions) {
         List<Float> odd = new ArrayList<>();
         List<Float> even = new ArrayList<>();
         List<Float> perfect = new ArrayList<>();
@@ -143,15 +159,25 @@ public class Controller {
                 perfect.add(solution);
             }
         }
-
         displayNumbers("Odd", odd);
         displayNumbers("Even", even);
-        displayNumbers("Perfect", perfect);
+        displayNumbers("Perfect",perfect);
     }
 
     public static void displayNumbers(String label, List<Float> numbers) {
         if (!numbers.isEmpty()) {
-            System.out.print("Numbers are " + label + ": ");
+            System.out.print("Number are " + label + ": ");
+            for (float number : numbers) {
+                System.out.printf("%.2f ", number);
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void displaySolution(List<Float> numbers){
+        if (!numbers.isEmpty()) {
+            System.out.print("Solution: ");
+            
             for (float number : numbers) {
                 System.out.printf("%.2f ", number);
             }
